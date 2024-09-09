@@ -1,5 +1,5 @@
 {% extends "inventApp/layout.html" %}
-{% block title %} Product List {% endblock %}
+{% block title %} Product List {% endblock title %}
 
 {% block content %}
 <h1 class="text-center">Products</h1>
@@ -25,8 +25,8 @@
         <td class="">{{product.quantity}}</td>
         <td class="">{{product.supplier}}</td>
         <td class="">
-            <a href="{% url 'product_update' product.product_id%}" class="btn btn-warning">Update</a>
-            <a href="{% url 'product_delete' product.product_id%}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'product_update' product.product_id %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'product_delete' product.product_id %}" class="btn btn-danger">Delete</a>
         </td>
         
        </tr>
@@ -34,4 +34,4 @@
     </tbody>
 </table>
 
-{% endblock %}
+{% endblock content %}
