@@ -5,7 +5,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     sku = models.CharField(max_length=50, unique=True)
     price = models.FloatField()
-    quantiry = models.IntegerField(0)
+    quantity = models.IntegerField(0)
     supplier = models.CharField(max_length=100)
 
     def __str__(self):

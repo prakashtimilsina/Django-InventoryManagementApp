@@ -1,0 +1,37 @@
+{% extends "inventApp/layout.html" %}
+{% block title %} Product List {% endblock %}
+
+{% block content %}
+<h1 class="text-center">Products</h1>
+<table class="table table-bordered table-striped text-center">
+    <thead class="thead-dark">
+        <tr class="">
+            <th class="">Product ID</th>
+            <th class="">Product Name</th>
+            <th class="">SKU</th>
+            <th class="">Product Price</th>
+            <th class="">Quantity</th>
+            <th class="">Supplier</th>
+            <th class="">Actions</th>
+        </tr>
+    </thead>
+    <tbody class="">
+       {% for product  in products %}
+       <tr class="">
+        <td class="">{{product.product_id}}</td>
+        <td class="">{{product.name}}</td>
+        <td class="">{{product.sku}}</td>
+        <td class="">{{product.price}}</td>
+        <td class="">{{product.quantity}}</td>
+        <td class="">{{product.supplier}}</td>
+        <td class="">
+            <a href="{% url 'product_update' product.product_id%}" class="btn btn-warning">Update</a>
+            <a href="{% url 'product_delete' product.product_id%}" class="btn btn-danger">Delete</a>
+        </td>
+        
+       </tr>
+       {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
