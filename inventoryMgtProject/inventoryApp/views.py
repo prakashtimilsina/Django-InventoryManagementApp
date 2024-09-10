@@ -25,7 +25,7 @@ def product_list_view(request):
 # Update View
 def product_update_view(request, product_id):
    product = Product.objects.get(product_id=product_id)
-   form = ProductForm()
+   form = ProductForm(instance=product)
    if request.method == 'POST':
        form = ProductForm(request.POST, instance=product)
        if form.is_valid():
@@ -36,7 +36,7 @@ def product_update_view(request, product_id):
 # Delete View
 def product_delete_view(request, product_id):
     product = Product.objects.get(product_id=product_id)
-    if request.method == 'post':
+    if request.method == 'POST':
         product.delete()
         return redirect('product_list')
     return render(request, 'inventApp/product_confirm_delete.html', {'product': product})
