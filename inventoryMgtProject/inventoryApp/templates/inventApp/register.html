@@ -1,0 +1,29 @@
+{% extends "inventApp/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Registration Page
+{% endblock title %}
+{% block content %}
+<div class="container bg-light shadow-md p-5 form-layout">
+    <h3 class="">Create your own account</h3>
+    <h5 class="">Start managing your products today!!</h5>
+    <hr>
+    <br>
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{form.username|as_crispy_field}}
+        <br>
+        {{form.password1|as_crispy_field}}
+        <br>
+        {{form.password2|as_crispy_field}}
+        <br>
+        <button type="submit" class="btn btn-primary p-2">Create an account &nbsp; <i class="fa fa-user" aria-hidden="true"></i></button>
+    </form>
+    <br>
+    <div class="text-center">
+        <p class="">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+    <br>
+</div>
+{% endblock %}

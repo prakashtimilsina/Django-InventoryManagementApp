@@ -25,22 +25,17 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">  <!-- Create a fixed-top navbar with Bootstrap classes -->
-        <a class="navbar-brand" href="{% url 'home' %}">Inventory App</a>  <!-- Link the brand name to the home page using Django's URL tag -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>  <!-- Button to toggle the navbar on smaller screens -->
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">  <!-- Collapsible navbar content -->
-            <ul class="navbar-nav">  <!-- Navbar items container -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'product_create' %}">Add Product</a>  <!-- Link to the product creation page -->
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'product_list' %}">Show Products</a>  <!-- Link to the product listing page -->
-                </li>
-            </ul>
-        </div>
-    </nav>
+    {% include "inventApp/navbar.html" %}
+    <br>
+    {% comment %} Notification Messages {% endcomment %}
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <p id="message-timer" class="alert alert-success float-center text-center message-text">
+        <i class="fa fa-check" aria-hidden=="true"></i> &nbsp; {{message}}
+    </p>
+    {% endif %}
+    {% endfor %}
+    
     <div class="container">
         {% block content %}{% endblock  %}
     </div>

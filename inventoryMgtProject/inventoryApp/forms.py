@@ -1,5 +1,10 @@
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
+from django.forms.widgets import PasswordInput, TextInput
+
 from django import forms
 from .models import Product
+
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -27,3 +32,15 @@ class ProductForm(forms.ModelForm):
             'supplier': forms.TextInput(
                 attrs={'placeholder':'e.g. ABC Corp', 'class':'form-control'}),
         }
+
+# - Register/Create a User
+class CreateUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(widget=TextInput())        
+    password = forms.CharField(widget=PasswordInput())  
+
+      

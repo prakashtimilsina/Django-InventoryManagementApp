@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">  <!-- Create a fixed-top navbar with Bootstrap classes -->
+    <a class="navbar-brand" href="{% url 'home' %}"> &nbsp; Inventory App</a>  <!-- Link the brand name to the home page using Django's URL tag -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>  <!-- Button to toggle the navbar on smaller screens -->
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">  <!-- Collapsible navbar content -->
+
+        <ul class="navbar-nav">  <!-- Navbar items container -->
+            &nbsp; &nbsp; &nbsp; 
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard &nbsp;</a>  <!-- Link to the product creation page -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'product_create' %}">Add Product &nbsp;</a>  <!-- Link to the product creation page -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Sign out &nbsp;</a>  <!-- Link to the product listing page -->
+            </li>
+        </ul>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>  <!-- Link to the product creation page -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>  <!-- Link to the product listing page -->
+            </li>
+            {% endif %}
+        
+    </div>
+</nav>

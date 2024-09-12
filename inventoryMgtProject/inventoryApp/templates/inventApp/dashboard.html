@@ -5,13 +5,12 @@ Home
 {% endblock title %}
 
 {% block content %}
+{% include "inventApp/navbar.html" %}
 <div class="jumbotron text-center">
     <h1 class="display-4">Welcome to the Product Inventory Management System</h1>
     <p class="lead">Manage Your Product efficiently and effectively</p>
-    {% comment %} <hr class="my-4">
-    <a href="{% url 'login' %}" class="btn btn-primary btn-lg" role="button">Login</a> <br>
-    <div class="text-center m-4 ">
-        <p>Don't have an account?</p><a href="{% url 'register' %}">Create your account.</a>
-    </div> {% endcomment %}
+    <hr class="my-4">
+    <p class="">Use nagivation bar to add, delete, update a product.</p>
+    <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg" role="button">Show All Products</a>
 </div>
 {% endblock content %}
