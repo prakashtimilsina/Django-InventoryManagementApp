@@ -88,6 +88,7 @@ def login(request):
 # Dashboard view
 @login_required(login_url='login')
 def dashboard(request):
+    
     return render(request, "inventApp/dashboard.html")
 
 # User Logout
